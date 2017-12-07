@@ -1,0 +1,15 @@
+<!--<?php #$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			#"attribute"=>"fecha",
+			#"model"=>$model,
+			#"language"=>"es",
+			#"options"=>array(
+				#"dateformat"=>"yy-mm-dd",
+				#'showButtonPanel'=>true,
+				#'changeYear'=>true,
+				#'changeYear'=>true,
+				#'yearRange'=>'-80:-10',
+				#'minDate'=>'-80Y',
+				#'maxDate'=>'10Y',
+			)
+		)); 
+		?>-->
