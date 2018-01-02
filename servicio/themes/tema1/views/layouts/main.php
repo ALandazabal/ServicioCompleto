@@ -41,7 +41,6 @@
           'items'=>array(
             array('label'=>'Adolescente', 'url'=>array('/Adolescente'), 'visible'=>!Yii::app()->user->isGuest),
             array('label'=>'Visita', 'url'=>array('/Visita'), 'visible'=>!Yii::app()->user->isGuest),
-            array('label'=>'Relacion', 'url'=>array('/Relacion'), 'visible'=>!Yii::app()->user->isGuest),
             array('label'=>'Visitante', 'url'=>array('/Visitante'), 'visible'=>!Yii::app()->user->isGuest),
             array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
           ),

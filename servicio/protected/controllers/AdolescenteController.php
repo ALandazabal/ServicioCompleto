@@ -127,13 +127,26 @@ class AdolescenteController extends Controller
 		}
 
 		$model=new Adolescente('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes();  
+
+		// clear any default values
 		if(isset($_GET['Adolescente']))
 			$model->attributes=$_GET['Adolescente'];
+
+		/*$this->render('admin',array(
+			'model'=>$model,
+		));*/
+		if(isset($_POST['Adolescente']))
+		{
+			$model->attributes=$_POST['Adolescente'];
+			if($model->save())
+				$this->redirect(array('admin','id'=>$model->idAdolescente));
+		}
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+
 	}
 
 	/**

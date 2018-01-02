@@ -2,20 +2,10 @@
 /* @var $this AdolescenteController */
 /* @var $model Adolescente */
 
-$this->menu=array(
-	array('label'=>'Crear Adolescente', 'url'=>array('create')),
-	array('label'=>'Reporte','url'=>array('admin','reporte'=>1)),
-);
 
 Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
+$('.nav-tabs').click(function(){
 	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$('#adolescente-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
 	return false;
 });
 ");
@@ -23,12 +13,28 @@ $('.search-form form').submit(function(){
 
 <h1>Adolescentes</h1>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php
+/*$this->menu=array(
+	array('label'=>'Crear Adolescente', 'url'=>array('create')),
+	array('label'=>'Reporte','url'=>array('admin','reporte'=>1)),
+);*/
+?>
+
+<?php echo CHtml::link('Insertar','#',array('class'=>'nav-tabs')); ?>
 <div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
+<?php $this->renderPartial('create',array(
 	'model'=>$model,
 )); ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div><!-- search-form -->
+
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'adolescente-grid',
