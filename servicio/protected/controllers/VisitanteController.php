@@ -33,11 +33,11 @@ class VisitanteController extends Controller
 				'users'=>array('10177862',),
 			),*/
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update','view','MunByEst'),
+				'actions'=>array('admin','create','update','view','SelectMunicipio'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create','update','view','MunByEst'),
+				'actions'=>array('admin','delete','create','update','view','MunByEst','SelectMunicipio'),
 				'users'=>array('20626929'),
 			),
 			array('deny',  // deny all users
@@ -57,13 +57,25 @@ class VisitanteController extends Controller
 		));
 	}
 
-	public function actionMunByEst()
+
+	public function actionSelectMunicipio(){
+		$id_uno = $_POST['Estado']['idEstado'];
+		$lista = Municipio::model()->findAll('idEstado = :id_uno', array(':id_uno' => $id_uno));
+		$lista = CHtml::listData($lista, 'idMunicipio', 'descripcionM');
+
+		echo CHtml::tag('option',array('value'=>''),'Seleccione un Municipio...',true);
+		foreach ($lista as $valor => $municipio) {
+			echo CHtml::tag('option',array('value'=>$valor),CHtml::encode($municipio),true);
+		}
+	}
+
+	/*public function actionMunByEst()
 	{
 		$list=Municipio::model()->findAll("fkEstado=?",array($_POST["Visitante"]["fkEstado"]));
 		foreach ($list as $data) {
 			echo "<option value=\"{$data->idMunicipio}\">{$data->descripcionM}</option>";
 		}
-	}
+	}*/
 
 	/**
 	 * Creates a new model.
@@ -139,9 +151,18 @@ class VisitanteController extends Controller
 		}
 
 		$model=new Visitante('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes();  
+
+		// clear any default values
 		if(isset($_GET['Visitante']))
 			$model->attributes=$_GET['Visitante'];
+
+		if(isset($_POST['Visitante']))
+		{
+			$model->attributes=$_POST['Visitante'];
+			if($model->save())
+				$this->redirect(array('admin', 'id'=>$model->idAdolescente));
+		}
 
 		$this->render('admin',array(
 			'model'=>$model,

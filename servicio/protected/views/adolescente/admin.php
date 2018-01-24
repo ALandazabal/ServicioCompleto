@@ -4,7 +4,7 @@
 
 
 Yii::app()->clientScript->registerScript('search', "
-$('.nav-tabs').click(function(){
+$('.btn-info').click(function(){
 	$('.search-form').toggle();
 	return false;
 });
@@ -20,7 +20,7 @@ $('.nav-tabs').click(function(){
 );*/
 ?>
 
-<?php echo CHtml::link('Insertar','#',array('class'=>'nav-tabs')); ?>
+<?php echo CHtml::link('Insertar','#',array('class'=>'btn-info btn-small')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('create',array(
 	'model'=>$model,

@@ -47,12 +47,15 @@ class Visitante extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'required'),
-			array('idVisitante, fkEstado, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
+			array('idVisitante, nombreV, apellidoV, direccion, fkMunicipio, fkNac', 'required'),
+			#array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'required'),
+			array('idVisitante, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
+			#array('idVisitante, fkEstado, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
 			array('nombreV, apellidoV, direccion', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
+			array('idVisitante, nombreV, apellidoV, direccion,  fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
+			#array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,7 +70,7 @@ class Visitante extends CActiveRecord
 			'adolescentes' => array(self::MANY_MANY, 'Adolescente', 'relacion(fkVisitante, fkAdolescente)'),
 			'fkMunicipio0' => array(self::BELONGS_TO, 'Municipio', 'fkMunicipio'),
 			'fkNac0' => array(self::BELONGS_TO, 'Nacionalidad', 'fkNac'),
-			'fkEstado0'=>array(self::BELONGS_TO,'Estado', 'fkEstado'),
+			#'fkEstado0'=>array(self::BELONGS_TO,'Estado', 'fkEstado'),
 		);
 	}
 
@@ -81,7 +84,7 @@ class Visitante extends CActiveRecord
 			'nombreV' => 'Nombre',
 			'apellidoV' => 'Apellido',
 			'direccion' => 'Direccion',
-			'fkEstado' => 'Estado',
+			#'fkEstado' => 'Estado',
 			'fkMunicipio' => 'Municipio',
 			'fkNac' => 'Nacionalidad',
 			'Nationality' => 'Nacionalidad',
@@ -99,13 +102,34 @@ class Visitante extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		
+		$sort=new CSort;
+
+		$sort->defaultOrder='idVisitante ASC,
+			fkNac0.descripcionN ASC';
+		$sort->attributes=array(
+			'idAdolescente'=>array(
+				'asc'=>'idAdolescente ASC,
+						fkNac0.descripcionN ASC',
+				'desc'=>'idAdolescente DESC,
+						fkNac0.descripcionN ASC',
+			),
+			'Nationality'=>array(
+				'asc'=>'fkNac0.descripcionN ASC,
+						idAdolescente ASC',
+				'desc'=>'fkNac0.descripcionN DESC,
+						idAdolescente ASC',
+			),
+		);
+
+
 		/*$sort=new CSort;
 
 		$sort->defaultOrder='idVisitante ASC,
 			fkNac0.descripcionN ASC,
 			fkMunicipio0.descripcionM ASC';
 		$sort->attributes=array(
-			'idVisitante')*/
+			'idVisitante');*/
 
 		$criteria->with = array('fkNac0');
 
@@ -121,7 +145,7 @@ class Visitante extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			//'sort'=>$sort,
+			'sort'=>$sort,
 		));
 	}
 
