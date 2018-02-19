@@ -131,6 +131,13 @@ class AdolescenteController extends Controller
 		if(isset($_GET['Adolescente']))
 			$model->attributes=$_GET['Adolescente'];
 
+		if(isset($_POST['Adolescente']))
+		{
+			$model->attributes=$_POST['Adolescente'];
+			if($model->save())
+				$this->redirect(array('admin','id'=>$model->idAdolescente));
+		}
+
 		$this->render('admin',array(
 			'model'=>$model,
 		));

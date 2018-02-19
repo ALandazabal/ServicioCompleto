@@ -46,13 +46,24 @@ class Visitante extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		return array(
+		/*return array(
 			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'required'),
 			array('idVisitante, fkEstado, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
 			array('nombreV, apellidoV, direccion', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
+		);*/
+		return array(
+			array('idVisitante, nombreV, apellidoV, direccion, fkMunicipio, fkNac', 'required'),
+			#array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac', 'required'),
+			array('idVisitante, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
+			#array('idVisitante, fkEstado, fkMunicipio, fkNac', 'numerical', 'integerOnly'=>true),
+			array('nombreV, apellidoV, direccion', 'length', 'max'=>45),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('idVisitante, nombreV, apellidoV, direccion,  fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
+			#array('idVisitante, nombreV, apellidoV, direccion, fkEstado, fkMunicipio, fkNac, Nationality, Municip', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,7 +78,7 @@ class Visitante extends CActiveRecord
 			'adolescentes' => array(self::MANY_MANY, 'Adolescente', 'relacion(fkVisitante, fkAdolescente)'),
 			'fkMunicipio0' => array(self::BELONGS_TO, 'Municipio', 'fkMunicipio'),
 			'fkNac0' => array(self::BELONGS_TO, 'Nacionalidad', 'fkNac'),
-			'fkEstado0'=>array(self::BELONGS_TO,'Estado', 'fkEstado'),
+			#'fkEstado0'=>array(self::BELONGS_TO,'Estado', 'fkEstado'),
 		);
 	}
 
@@ -81,7 +92,7 @@ class Visitante extends CActiveRecord
 			'nombreV' => 'Nombre',
 			'apellidoV' => 'Apellido',
 			'direccion' => 'Direccion',
-			'fkEstado' => 'Estado',
+			#'fkEstado' => 'Estado',
 			'fkMunicipio' => 'Municipio',
 			'fkNac' => 'Nacionalidad',
 			'Nationality' => 'Nacionalidad',
@@ -99,29 +110,79 @@ class Visitante extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria2=new CDbCriteria;
+		
+		$sort=new CSort;
+		$sort2=new CSort;
+
+		$sort->defaultOrder='idVisitante ASC,
+			fkNac0.descripcionN ASC';
+		$sort->attributes=array(
+			'idVisitante'=>array(
+				'asc'=>'idVisitante ASC,
+						fkNac0.descripcionN ASC',
+				'desc'=>'idVisitante DESC,
+						fkNac0.descripcionN ASC',
+			),
+			'Nationality'=>array(
+				'asc'=>'fkNac0.descripcionN ASC,
+						idVisitante ASC',
+				'desc'=>'fkNac0.descripcionN DESC,
+						idVisitante ASC',
+			),
+		);
+
+		$sort2->defaultOrder='idVisitante ASC,
+			fkMunicipio0.descripcionM ASC';
+		$sort2->attributes=array(
+			'idVisitante'=>array(
+				'asc'=>'idVisitante ASC,
+						fkNac0.descripcionM ASC',
+				'desc'=>'idVisitante DESC,
+						fkMunicipio0.descripcionM ASC',
+			),
+			'Municip'=>array(
+				'asc'=>'fkMunicipio0.descripcionM ASC,
+						idVisitante ASC',
+				'desc'=>'fkMunicipio0.descripcionM DESC,
+						idVisitante ASC',
+			),
+		);
+
 		/*$sort=new CSort;
 
 		$sort->defaultOrder='idVisitante ASC,
 			fkNac0.descripcionN ASC,
 			fkMunicipio0.descripcionM ASC';
 		$sort->attributes=array(
-			'idVisitante')*/
+			'idVisitante');*/
 
 		$criteria->with = array('fkNac0');
+		$criteria2->with = array('fkMunicipio0');
 
 		$criteria->compare('idVisitante',$this->idVisitante);
 		$criteria->compare('nombreV',$this->nombreV,true);
 		$criteria->compare('apellidoV',$this->apellidoV,true);
 		$criteria->compare('direccion',$this->direccion,true);
-		$criteria->compare('fkEstado',$this->fkEstado);
+		//$criteria->compare('fkEstado',$this->fkEstado);
 		$criteria->compare('fkMunicipio',$this->fkMunicipio);
 		$criteria->compare('fkNac',$this->fkNac);
 		$criteria->compare('fkNac0.descripcionN',$this->Nationality,true);
 		$criteria->compare('fkMunicipio0.descripcionM',$this->Municip,true);
 
+		$criteria2->compare('idVisitante',$this->idVisitante);
+		$criteria2->compare('nombreV',$this->nombreV,true);
+		$criteria2->compare('apellidoV',$this->apellidoV,true);
+		$criteria2->compare('direccion',$this->direccion,true);
+		//$criteria->compare('fkEstado',$this->fkEstado);
+		$criteria2->compare('fkMunicipio',$this->fkMunicipio);
+		$criteria2->compare('fkNac',$this->fkNac);
+		$criteria2->compare('fkNac0.descripcionN',$this->Nationality,true);
+		$criteria2->compare('fkMunicipio0.descripcionM',$this->Municip,true);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			//'sort'=>$sort,
+			'sort'=>$sort,
 		));
 	}
 

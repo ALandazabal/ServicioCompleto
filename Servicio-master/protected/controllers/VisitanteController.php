@@ -37,7 +37,7 @@ class VisitanteController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create','update','view','MunByEst'),
+				'actions'=>array('admin','delete','create','update','view','MunByEst','SelectMunicipio'),
 				'users'=>array('20626929'),
 			),
 			array('deny',  // deny all users
@@ -57,7 +57,18 @@ class VisitanteController extends Controller
 		));
 	}
 
-	public function actionMunByEst()
+	public function actionSelectMunicipio(){
+		$id_uno = $_POST['Estado']['idEstado'];
+		$lista = Municipio::model()->findAll('idEstado = :id_uno', array(':id_uno' => $id_uno));
+		$lista = CHtml::listData($lista, 'idMunicipio', 'descripcionM');
+
+		echo CHtml::tag('option',array('value'=>''),'Seleccione un Municipio...',true);
+		foreach ($lista as $valor => $municipio) {
+			echo CHtml::tag('option',array('value'=>$valor),CHtml::encode($municipio),true);
+		}
+	}
+
+	/*public function actionMunByEst()
 	{
 		$list=Municipio::model()->findAll("fkEstado=?",array($_POST["Visitante"]["fkEstado"]));
 		foreach ($list as $data) {
@@ -65,7 +76,7 @@ class VisitanteController extends Controller
 		}
 	}
 
-	/**
+	*
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
@@ -142,6 +153,13 @@ class VisitanteController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Visitante']))
 			$model->attributes=$_GET['Visitante'];
+
+		if(isset($_POST['Visitante']))
+		{
+			$model->attributes=$_POST['Visitante'];
+			if($model->save())
+				$this->redirect(array('admin', 'id'=>$model->idVisitante));
+		}
 
 		$this->render('admin',array(
 			'model'=>$model,

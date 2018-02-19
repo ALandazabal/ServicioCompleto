@@ -2272,3 +2272,260 @@ Stack trace:
 REQUEST_URI=/servicio/Servicio-master/
 HTTP_REFERER=http://localhost/servicio/Servicio-master/
 ---
+2018/02/19 09:39:56 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '123456' for key 'PRIMARY'. La sentencia SQL ejecutada fue: INSERT INTO `adolescente` (`idAdolescente`, `nombreA`, `apellidoA`, `fkNac`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\AdolescenteController.php (137)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/19 09:39:56 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '123456' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `adolescente` (`idAdolescente`, `nombreA`, `apellidoA`, `fkNac`) VALUES (:yp0, :yp1, :yp2, :yp3) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\AdolescenteController.php(137): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): AdolescenteController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('admin')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('adolescente/adm...')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/adolescente/admin/123456.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/adolescente/admin/123456.html
+---
+2018/02/19 09:42:59 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3' for key 'PRIMARY'. La sentencia SQL ejecutada fue: INSERT INTO `rol` (`idRol`, `descripcionR`) VALUES (:yp0, :yp1).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\RolController.php (57)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/19 09:42:59 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `rol` (`idRol`, `descripcionR`) VALUES (:yp0, :yp1) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\RolController.php(57): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): RolController->actionCreate()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('rol/create')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/rol/create.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/rol/create.html
+---
+2018/02/19 09:44:23 [error] [exception.CException] CException: Propiedad "Visitante"."fkEstado" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkEstado')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkEstado')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(Visitante), 'fkEstado')
+#3 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(Visitante), 'fkEstado', Array)
+#4 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(Visitante), 'fkEstado', Array)
+#5 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\_search.php(36): CActiveForm->textField(Object(Visitante), 'fkEstado')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\admin.php(33): CController->renderPartial('_search', Array)
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#14 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitanteController.php(147): CController->render('admin', Array)
+#15 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitanteController->actionAdmin()
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#25 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visitante')
+#26 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#27 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/servicio/Servicio-master/Visitante.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/19 09:46:23 [error] [exception.CException] CException: Propiedad "Visitante"."fkEstado" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkEstado')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkEstado')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visitante), 'fkEstado')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\_form.php(55): CActiveForm->dropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\create.php(13): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\admin.php(18): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitanteController.php(147): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitanteController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visitante')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visitante.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/19 09:53:24 [error] [exception.CException] CException: Propiedad "Visitante"."fkEstado" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkEstado')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkEstado')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visitante), 'fkEstado')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\_form.php(55): CActiveForm->dropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\create.php(13): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\admin.php(18): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitanteController.php(165): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitanteController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visitante')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visitante.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/19 09:55:06 [error] [exception.CException] CException: Propiedad "Visitante"."fkEstado" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkEstado')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkEstado')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visitante), 'fkEstado')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\_form.php(55): CActiveForm->dropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\create.php(13): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\admin.php(18): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitanteController.php(165): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitanteController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visitante')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visitante.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/19 10:04:39 [error] [exception.CException] CException: Propiedad "Visitante"."fkEstado" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkEstado')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkEstado')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visitante), 'fkEstado')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\_form.php(55): CActiveForm->dropDownList(Object(Visitante), 'fkEstado', Array, Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\create.php(13): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visitante\admin.php(18): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitanteController.php(165): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitanteController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visitante')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visitante.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/19 10:13:50 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`visita`, CONSTRAINT `fk_Visita_Relacion` FOREIGN KEY (`fkRelVte`, `fkRelAdol`) REFERENCES `relacion` (`fkVisitante`, `fkAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `visita` (`fecha`, `h_entrada`, `fkUsuario`, `fkRelVte`, `fkRelAdol`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/19 10:13:50 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`visita`, CONSTRAINT `fk_Visita_Relacion` FOREIGN KEY (`fkRelVte`, `fkRelAdol`) REFERENCES `relacion` (`fkVisitante`, `fkAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `visita` (`fecha`, `h_entrada`, `fkUsuario`, `fkRelVte`, `fkRelAdol`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionCreate()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('visita/create')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/visita/create.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/visita/create.html
+---
