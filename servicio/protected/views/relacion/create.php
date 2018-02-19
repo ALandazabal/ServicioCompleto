@@ -7,4 +7,6 @@ $this->menu=array(
 ?>
 <h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
 
+<?php echo $this->renderPartial('adolescente/_form', array('model'=>$model)); ?>
+
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

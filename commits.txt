@@ -1,0 +1,57 @@
+On branch master
+Changes not staged for commit:
+	deleted:    .htaccess
+	deleted:    demos/blog/protected/.htaccess
+	deleted:    demos/blog/themes/classic/views/.htaccess
+	deleted:    demos/hangman/protected/.htaccess
+	deleted:    demos/helloworld/protected/.htaccess
+	deleted:    demos/phonebook/flex/.actionScriptProperties
+	deleted:    demos/phonebook/flex/.flexProperties
+	deleted:    demos/phonebook/flex/.project
+	deleted:    demos/phonebook/protected/.htaccess
+	deleted:    framework/.htaccess
+	deleted:    framework/cli/views/webapp/protected/.htaccess
+	deleted:    framework/cli/views/webapp/themes/classic/views/.htaccess
+	deleted:    protected/.htaccess
+	deleted:    requirements/messages/.htaccess
+	deleted:    requirements/views/.htaccess
+	deleted:    servicio/.htaccess
+	deleted:    servicio/protected/.htaccess
+	modified:   servicio/protected/controllers/VisitanteController.php
+	modified:   servicio/protected/models/Relacion.php
+	modified:   servicio/protected/models/Visitante.php
+	modified:   servicio/protected/runtime/application.log
+	modified:   servicio/protected/views/relacion/admin.php
+	modified:   servicio/protected/views/relacion/create.php
+	modified:   servicio/protected/views/visitante/_form.php
+	deleted:    servicio/themes/classic/views/.htaccess
+	deleted:    servicio/themes/tema1/views/.htaccess
+	deleted:    themes/classic/views/.htaccess
+	deleted:    themes/tema1/views/.htaccess
+
+Untracked files:
+	_htaccess
+	commits.txt
+	demos/blog/protected/_htaccess
+	demos/blog/themes/classic/views/_htaccess
+	demos/hangman/protected/_htaccess
+	demos/helloworld/protected/_htaccess
+	demos/phonebook/flex/_actionScriptProperties.xml
+	demos/phonebook/flex/_flexProperties.xml
+	demos/phonebook/flex/_project.xml
+	demos/phonebook/protected/_htaccess
+	framework/_htaccess
+	framework/cli/views/webapp/protected/_htaccess
+	framework/cli/views/webapp/themes/classic/views/_htaccess
+	protected/_htaccess
+	requirements/messages/_htaccess
+	requirements/views/_htaccess
+	servicio/_htaccess
+	servicio/assets/44d159b8/
+	servicio/protected/_htaccess
+	servicio/themes/classic/views/_htaccess
+	servicio/themes/tema1/views/_htaccess
+	themes/classic/views/_htaccess
+	themes/tema1/views/_htaccess
+
+no changes added to commit

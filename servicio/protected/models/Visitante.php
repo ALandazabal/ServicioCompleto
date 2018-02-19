@@ -102,26 +102,44 @@ class Visitante extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria2=new CDbCriteria;
 		
 		$sort=new CSort;
+		$sort2=new CSort;
 
 		$sort->defaultOrder='idVisitante ASC,
 			fkNac0.descripcionN ASC';
 		$sort->attributes=array(
-			'idAdolescente'=>array(
-				'asc'=>'idAdolescente ASC,
+			'idVisitante'=>array(
+				'asc'=>'idVisitante ASC,
 						fkNac0.descripcionN ASC',
-				'desc'=>'idAdolescente DESC,
+				'desc'=>'idVisitante DESC,
 						fkNac0.descripcionN ASC',
 			),
 			'Nationality'=>array(
 				'asc'=>'fkNac0.descripcionN ASC,
-						idAdolescente ASC',
+						idVisitante ASC',
 				'desc'=>'fkNac0.descripcionN DESC,
-						idAdolescente ASC',
+						idVisitante ASC',
 			),
 		);
 
+		$sort2->defaultOrder='idVisitante ASC,
+			fkMunicipio0.descripcionM ASC';
+		$sort2->attributes=array(
+			'idVisitante'=>array(
+				'asc'=>'idVisitante ASC,
+						fkNac0.descripcionM ASC',
+				'desc'=>'idVisitante DESC,
+						fkMunicipio0.descripcionM ASC',
+			),
+			'Municip'=>array(
+				'asc'=>'fkMunicipio0.descripcionM ASC,
+						idVisitante ASC',
+				'desc'=>'fkMunicipio0.descripcionM DESC,
+						idVisitante ASC',
+			),
+		);
 
 		/*$sort=new CSort;
 
@@ -132,6 +150,7 @@ class Visitante extends CActiveRecord
 			'idVisitante');*/
 
 		$criteria->with = array('fkNac0');
+		$criteria2->with = array('fkMunicipio0');
 
 		$criteria->compare('idVisitante',$this->idVisitante);
 		$criteria->compare('nombreV',$this->nombreV,true);
@@ -142,6 +161,16 @@ class Visitante extends CActiveRecord
 		$criteria->compare('fkNac',$this->fkNac);
 		$criteria->compare('fkNac0.descripcionN',$this->Nationality,true);
 		$criteria->compare('fkMunicipio0.descripcionM',$this->Municip,true);
+
+		$criteria2->compare('idVisitante',$this->idVisitante);
+		$criteria2->compare('nombreV',$this->nombreV,true);
+		$criteria2->compare('apellidoV',$this->apellidoV,true);
+		$criteria2->compare('direccion',$this->direccion,true);
+		//$criteria->compare('fkEstado',$this->fkEstado);
+		$criteria2->compare('fkMunicipio',$this->fkMunicipio);
+		$criteria2->compare('fkNac',$this->fkNac);
+		$criteria2->compare('fkNac0.descripcionN',$this->Nationality,true);
+		$criteria2->compare('fkMunicipio0.descripcionM',$this->Municip,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

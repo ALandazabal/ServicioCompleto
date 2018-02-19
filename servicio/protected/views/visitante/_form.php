@@ -48,8 +48,8 @@
 		</div>
 
 		<div class="span11">
-			<?php echo $form->labelEx($model.'fkMunicipio'); ?>
-			<?php echo $form->dropDownList($model,'fkMunicipio', $model->getMenuNac(),array("empty"=>"--",'class'=>'span12')); ?>
+			<?php echo $form->labelEx($model,'fkMunicipio'); ?>
+			<?php echo $form->dropDownList($model,'fkMunicipio', $model->getMenuMunicipio(),array("empty"=>"--",'class'=>'span12')); ?>
 			<?php echo $form->error($model,'fkMunicipio'); ?>
 		</div>
 

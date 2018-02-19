@@ -3,7 +3,7 @@
 
 $this->menu=array(
 	array('label'=>'Create Relación', 'url'=>array('create')),
-	array('label'=>'Create Relación', 'url'=>array('visitanteForm')),
+	array('label'=>'visitanteForm', 'url'=>array('visitanteForm')),
 	array('label'=>'Reporte', 'url'=>array('admin',"reporte"=>1)),
 );
 

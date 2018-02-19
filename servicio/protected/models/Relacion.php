@@ -43,8 +43,8 @@ class Relacion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fkVisitante', 'required'),
-			array('fkVisitante', 'numerical', 'integerOnly'=>true),
+			array('fkRol, fkVisitante, fkAdolescente', 'required'),
+			array('fkRol, fkVisitante, fkAdolescente', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('fkRol, fkVisitante, fkAdolescente, Role', 'safe', 'on'=>'search'),
@@ -102,7 +102,8 @@ class Relacion extends CActiveRecord
 
 	public function getMenuRol()
 	{
-		return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");
+		return CHtml::listData(Rol::model()->findAll(),"idRol","idRol");
+		#return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");
 	}
 
 	public function getMenuVisitante()

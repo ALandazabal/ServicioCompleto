@@ -161,7 +161,7 @@ class VisitanteController extends Controller
 		{
 			$model->attributes=$_POST['Visitante'];
 			if($model->save())
-				$this->redirect(array('admin', 'id'=>$model->idAdolescente));
+				$this->redirect(array('admin', 'id'=>$model->idVisitante));
 		}
 
 		$this->render('admin',array(
