@@ -15,32 +15,37 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div>
-		<?php echo $form->labelEx($model,'idAdolescente'); ?>
-		<?php echo $form->textField($model,'idAdolescente'); ?>
-		<?php echo $form->error($model,'idAdolescente'); ?>
+	<div class="pull-left span6">
+		<div class="span11">
+			<?php echo $form->labelEx($model,'idAdolescente'); ?>
+			<?php echo $form->textField($model,'idAdolescente',array('placeholder'=>'Ej. 21123123', 'class'=>'span12')); ?>
+			<?php echo $form->error($model,'idAdolescente'); ?>
+		</div>
+		<div class="span11">
+			<?php echo $form->labelEx($model,'fkNac'); ?>
+			<?php echo $form->dropDownList($model,'fkNac',$model->getMenuNac(),array("empty"=>"--", 'class'=>'span12')); ?>
+			<?php echo $form->error($model,'fkNac'); ?>
+		</div>	
 	</div>
 
-	<div>
-		<?php echo $form->labelEx($model,'nombreA'); ?>
-		<?php echo $form->textField($model,'nombreA',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'nombreA'); ?>
+
+	<div class="pull-left span5">
+		<div class="span12">
+			<?php echo $form->labelEx($model,'nombreA'); ?>
+			<?php echo $form->textField($model,'nombreA',array('size'=>45,'maxlength'=>45, 'placeholder'=>'Ej. María', 'class'=>'span12')); ?>
+			<?php echo $form->error($model,'nombreA'); ?>
+		</div>
+	
+		<div class="span12">
+			<?php echo $form->labelEx($model,'apellidoA'); ?>
+			<?php echo $form->textField($model,'apellidoA',array('size'=>45,'maxlength'=>45, 'placeholder'=>'Ej. Mora', 'class'=>'span12')); ?>
+			<?php echo $form->error($model,'apellidoA'); ?>
+		</div>
+
 	</div>
 
-	<div>
-		<?php echo $form->labelEx($model,'apellidoA'); ?>
-		<?php echo $form->textField($model,'apellidoA',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'apellidoA'); ?>
-	</div>
-
-	<div>
-		<?php echo $form->labelEx($model,'fkNac'); ?>
-		<?php echo $form->dropDownList($model,'fkNac',$model->getMenuNac(),array("empty"=>"--")); ?>
-		<?php echo $form->error($model,'fkNac'); ?>
-	</div>
-
-	<div class="buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class'=>'btn btn-primary')); ?>
+	<div class="buttons span12 center">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class'=>'btn btn-primary btn-large span6 center')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

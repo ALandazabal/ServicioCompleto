@@ -17,19 +17,20 @@ $('.btn-info').click(function(){
 <?php $this->renderPartial('create',array(
 	'model'=>$model,
 )); ?>
+<!--<br>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-<br>
-<br>
-</div><!-- search-form -->
+<br>search-form -->
+</div> 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'visitante-grid',
 	'dataProvider'=>$model->search(),
+	'summaryText'=>'',
 	'filter'=>$model,
 	'columns'=>array(
 		'idVisitante',

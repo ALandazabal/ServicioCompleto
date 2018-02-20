@@ -1,12 +1,12 @@
 <?php
 /* @var $this AdolescenteController */
-/* @var $model Adolescente */
+/* @var $model Adolescente 
 
 $this->menu=array(
 	array('label'=>'Manage Adolescente', 'url'=>array('admin')),
-);
+);*/
 ?>
 
-<h1>Crear Adolescente</h1>
+<h3>Crear Adolescente</h3>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

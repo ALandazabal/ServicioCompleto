@@ -2529,3 +2529,33 @@ Stack trace:
 REQUEST_URI=/servicio/Servicio-master/visita/create.html
 HTTP_REFERER=http://localhost/servicio/Servicio-master/visita/create.html
 ---
+2018/02/20 09:16:02 [error] [php] Undefined variable: form (C:\xampp\htdocs\servicio\Servicio-master\protected\views\adolescente\_form.php:18)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\CController.php(869): AdolescenteController->renderFile()
+#1 C:\xampp\htdocs\servicio\Servicio-master\protected\views\adolescente\create.php(12): AdolescenteController->renderPartial()
+#2 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): AdolescenteController->renderInternal()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(869): AdolescenteController->renderFile()
+#5 C:\xampp\htdocs\servicio\Servicio-master\protected\views\adolescente\admin.php(18): AdolescenteController->renderPartial()
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): AdolescenteController->renderInternal()
+#8 C:\xampp\htdocs\servicio\framework\web\CController.php(869): AdolescenteController->renderFile()
+#9 C:\xampp\htdocs\servicio\framework\web\CController.php(782): AdolescenteController->renderPartial()
+#10 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\AdolescenteController.php(142): AdolescenteController->render()
+#11 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): AdolescenteController->actionAdmin()
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): AdolescenteController->runAction()
+#14 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#16 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): AdolescenteController->filterAccessControl()
+#17 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#18 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(265): AdolescenteController->runActionWithFilters()
+#20 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): AdolescenteController->run()
+#21 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/adolescente/admin/34563.html
+in C:\xampp\htdocs\servicio\Servicio-master\protected\views\adolescente\_form.php (18)
+in C:\xampp\htdocs\servicio\Servicio-master\protected\views\adolescente\create.php (12)
+in C:\xampp\htdocs\servicio\Servicio-master\protected\views\adolescente\admin.php (18)
