@@ -47,6 +47,10 @@
 			<?php echo $form->error($model,'direccion'); ?>
 		</div>
 
+		<!--<div class="span11">
+			<?php #echo $form->dropDownList($model,'idEstado', CHtml::listData(Estado::model()->findAll(),'id','descripcionE')); ?>
+		</div>-->
+
 		<div class="span11">
 			<?php echo $form->labelEx($model,'fkMunicipio'); ?>
 			<?php echo $form->dropDownList($model,'fkMunicipio', $model->getMenuMunicipio(),array("empty"=>"--",'class'=>'span12')); ?>

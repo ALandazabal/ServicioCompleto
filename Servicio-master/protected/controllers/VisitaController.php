@@ -46,8 +46,25 @@ class VisitaController extends Controller
 
 		$model=new Visita('search');
 		$model->unsetAttributes();  // clear any default values
+		$modelR = new Relacion;
+
+
 		if(isset($_GET['Visita']))
 			$model->attributes=$_GET['Visita'];
+
+		if(isset($_POST['Visita']))
+		{
+			$model->attributes=$_POST['Visita'];
+			#$modelR->fkVisitante = '212121';
+			#$modelR->fkAdolescente = '212121';
+			$modelR->fkVisitante = $_POST['fkRelVte'];
+			$modelR->fkAdolescente = $_POST['fkRelAdol'];
+			$modelR->fkRol = '4';			
+			$modelR->save();
+			
+			if($model->save())
+				$this->redirect(array('admin'));
+		}
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -57,12 +74,20 @@ class VisitaController extends Controller
 	public function actionCreate()
 	{
 		$model=new Visita;
+		$modelR = new Relacion;
 
 		if(isset($_POST['Visita']))
 		{
+			$modelR->fkVisitante = '212121';
+			$modelR->fkAdolescente = '212121';
+			#$modelR->fkVisitante = $model->fkRelVte;
+			#$modelR->fkAdolescente = $model->fkRelAdol;
+			$modelR->fkRol = '4';			
+			$modelR->save();
 			$model->attributes=$_POST['Visita'];
+
 			if($model->save())
-				$this->redirect(array('admin'));
+				$this->redirect(array('view','model'=>$model));
 		}
 
 		$this->render('create', array('model'=>$model,
