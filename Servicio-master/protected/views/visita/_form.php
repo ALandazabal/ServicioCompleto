@@ -42,20 +42,20 @@
 		<div class="span11">
 			<?php echo $form->labelEx($model,'fkVisitante'); ?>
 			<!--<?php #echo $form->dropDownList($model,'fkRelVte',$model->getMenuVisitante(),array("empty"=>"--")); ?>-->
-			<?php echo $form->textField($model,'fkRelVte'); ?>
+			<?php echo $form->textField(Visitante::model(),'idVisitante'); ?>
 			<?php echo $form->error($model,'fkVisitante'); ?>
 		</div>
 
 		<div class="span11">
 			<?php echo $form->labelEx($model,'fkAdolescente'); ?>
 			<!--<?php #echo $form->dropDownList($model,'fkRelAdol',$model->getMenuAdolescente(),array("empty"=>"--")); ?>-->
-			<?php echo $form->textField($model,'fkRelAdol'); ?>
+			<?php echo $form->textField(Adolescente::model(),'idAdolescente'); ?>
 			<?php echo $form->error($model,'fkAdolescente'); ?>
 		</div>
 		<div class="span11">
-			<?php echo $form->labelEx($model,'fkRol'); ?>
-			<?php echo $form->dropDownList($model,'idRol',$model->getMenuRol()); ?>
-			<?php echo $form->error($model,'fkRol'); ?>
+			<?php echo $form->labelEx($model,'idRol'); ?>
+			<?php echo $form->dropDownList(Rol::model(),'idRol',$model->getMenuRol()); ?>
+			<?php echo $form->error($model,'idRol'); ?>
 		</div>
 	</div>
 

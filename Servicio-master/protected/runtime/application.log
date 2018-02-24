@@ -5355,3 +5355,635 @@ Stack trace:
 #25 {main}
 REQUEST_URI=/servicio/Servicio-master/Visitante
 ---
+2018/02/24 14:25:56 [error] [exception.CException] CException: Propiedad "Visita"."idRol" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('idRol')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('idRol')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visita), 'idRol')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visita), 'idRol', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(57): CActiveForm->dropDownList(Object(Visita), 'idRol', Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(71): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/visitante/admin/10150335.html
+---
+2018/02/24 14:36:52 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 14:36:52 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/24 14:37:14 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 14:37:14 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/24 14:38:02 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 14:38:02 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/24 14:49:44 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 14:49:44 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/24 14:50:31 [error] [php] Undefined index: idRol (C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php:62)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): VisitaController->runAction()
+#1 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): VisitaController->filterAccessControl()
+#4 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\servicio\framework\web\CController.php(265): VisitaController->runActionWithFilters()
+#7 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): VisitaController->run()
+#8 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (62)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:05:07 [error] [php] Undefined index: idRol (C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php:62)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): VisitaController->runAction()
+#1 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): VisitaController->filterAccessControl()
+#4 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\servicio\framework\web\CController.php(265): VisitaController->runActionWithFilters()
+#7 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): VisitaController->run()
+#8 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (62)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:05:59 [error] [php] Undefined index: idRol (C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php:62)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): VisitaController->runAction()
+#1 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): VisitaController->filterAccessControl()
+#4 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\servicio\framework\web\CController.php(265): VisitaController->runActionWithFilters()
+#7 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): VisitaController->run()
+#8 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (62)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:06:16 [error] [php] Undefined index: fkRol (C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php:62)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): VisitaController->runAction()
+#1 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): VisitaController->filterAccessControl()
+#4 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\servicio\framework\web\CController.php(265): VisitaController->runActionWithFilters()
+#7 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): VisitaController->run()
+#8 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (62)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:08:21 [error] [exception.CException] CException: Propiedad "Visita"."fkRol" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkRol')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkRol')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visita), 'fkRol')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visita), 'fkRol', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(57): CActiveForm->dropDownList(Object(Visita), 'fkRol', Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(71): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+---
+2018/02/24 15:12:37 [error] [exception.CException] CException: Propiedad "Visita"."fkRol" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkRol')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkRol')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visita), 'fkRol')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visita), 'fkRol', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(57): CActiveForm->dropDownList(Object(Visita), 'fkRol', Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(71): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/
+---
+2018/02/24 15:12:54 [error] [exception.CException] CException: Propiedad "Visita"."fkRol" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkRol')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkRol')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(Visita), 'fkRol')
+#3 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(763): CHtml::activeDropDownList(Object(Visita), 'fkRol', Array, Array)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(57): CActiveForm->dropDownList(Object(Visita), 'fkRol', Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): CController->renderPartial('create', Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(71): CController->render('admin', Array)
+#18 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#19 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#29 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/
+---
+2018/02/24 15:13:28 [error] [exception.CException] CException: Propiedad "Visita"."fkRol" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkRol')
+#1 C:\xampp\htdocs\servicio\Servicio-master\protected\models\Visita.php(110): CActiveRecord->__get('fkRol')
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(29): Visita->search()
+#3 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#7 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(71): CController->render('admin', Array)
+#8 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#9 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#18 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#19 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/
+---
+2018/02/24 15:14:41 [error] [php] Undefined index: fkRol (C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php:62)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): VisitaController->runAction()
+#1 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): VisitaController->filterAccessControl()
+#4 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\servicio\framework\web\CController.php(265): VisitaController->runActionWithFilters()
+#7 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): VisitaController->run()
+#8 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (62)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:18:31 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:18:31 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita.html
+---
+2018/02/24 15:25:06 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (65)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:25:06 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(65): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita
+---
+2018/02/24 15:26:03 [error] [exception.ArgumentCountError] ArgumentCountError: Too few arguments to function CActiveForm::dropDownList(), 2 passed in C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php on line 57 and at least 3 expected in C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php:761
+Stack trace:
+#0 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(57): CActiveForm->dropDownList(Object(Rol), 'idRol')
+#1 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): CController->renderPartial('_form', Array)
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): CController->renderPartial('create', Array)
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#13 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(72): CController->render('admin', Array)
+#14 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#24 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#25 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+---
+2018/02/24 15:26:30 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php:2053)
+Stack trace:
+#0 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(57): CActiveForm->dropDownList()
+#1 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): VisitaController->renderInternal()
+#3 C:\xampp\htdocs\servicio\framework\web\CController.php(869): VisitaController->renderFile()
+#4 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): VisitaController->renderPartial()
+#5 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require()
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): VisitaController->renderInternal()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(869): VisitaController->renderFile()
+#8 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): VisitaController->renderPartial()
+#9 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require()
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): VisitaController->renderInternal()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(869): VisitaController->renderFile()
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(782): VisitaController->renderPartial()
+#13 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(72): VisitaController->render()
+#14 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#15 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams()
+#16 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): VisitaController->runAction()
+#17 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#19 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): VisitaController->filterAccessControl()
+#20 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#21 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#22 C:\xampp\htdocs\servicio\framework\web\CController.php(265): VisitaController->runActionWithFilters()
+#23 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): VisitaController->run()
+#24 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#25 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/servicio/Servicio-master/Visita
+in C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php (57)
+in C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php (10)
+in C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php (22)
+2018/02/24 15:28:40 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`visita`, CONSTRAINT `fk_Visita_Relacion` FOREIGN KEY (`fkRelVte`, `fkRelAdol`) REFERENCES `relacion` (`fkVisitante`, `fkAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `visita` (`fecha`, `h_entrada`, `h_salida`, `fkUsuario`, `fkRelVte`, `fkRelAdol`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (67)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:28:40 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`visita`, CONSTRAINT `fk_Visita_Relacion` FOREIGN KEY (`fkRelVte`, `fkRelAdol`) REFERENCES `relacion` (`fkVisitante`, `fkAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `visita` (`fecha`, `h_entrada`, `h_salida`, `fkUsuario`, `fkRelVte`, `fkRelAdol`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(67): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita
+---
+2018/02/24 15:31:15 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (65)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:31:15 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(65): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita
+---
+2018/02/24 15:33:44 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:33:44 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita
+---
+2018/02/24 15:34:01 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (64)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:34:01 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`relacion`, CONSTRAINT `fk_Relacion_Adolescente` FOREIGN KEY (`fkAdolescente`) REFERENCES `adolescente` (`idAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `relacion` (`fkVisitante`, `fkAdolescente`, `fkRol`) VALUES (:yp0, :yp1, :yp2) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(64): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita
+---
+2018/02/24 15:40:29 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`visita`, CONSTRAINT `fk_Visita_Relacion` FOREIGN KEY (`fkRelVte`, `fkRelAdol`) REFERENCES `relacion` (`fkVisitante`, `fkAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). La sentencia SQL ejecutada fue: INSERT INTO `visita` (`fecha`, `h_entrada`, `h_salida`, `fkUsuario`, `fkRelVte`, `fkRelAdol`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (66)
+in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/02/24 15:40:29 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`eawilpia`.`visita`, CONSTRAINT `fk_Visita_Relacion` FOREIGN KEY (`fkRelVte`, `fkRelAdol`) REFERENCES `relacion` (`fkVisitante`, `fkAdolescente`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `visita` (`fecha`, `h_entrada`, `h_salida`, `fkUsuario`, `fkRelVte`, `fkRelAdol`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5) in C:\xampp\htdocs\servicio\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(66): CActiveRecord->save()
+#3 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#4 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#14 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Visita
+---
+2018/02/24 15:44:19 [error] [exception.CException] CException: Propiedad "Rol"."fkVisitante" no se encuentra definida. in C:\xampp\htdocs\servicio\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\db\ar\CActiveRecord.php(143): CComponent->__get('fkVisitante')
+#1 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('fkVisitante')
+#2 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(Rol), 'fkVisitante')
+#3 C:\xampp\htdocs\servicio\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(Rol), 'fkVisitante', Array)
+#4 C:\xampp\htdocs\servicio\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(Rol), 'fkVisitante', Array)
+#5 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\_form.php(45): CActiveForm->textField(Object(Rol), 'fkVisitante')
+#6 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\create.php(10): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php(22): CController->renderPartial('create', Array)
+#14 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#17 C:\xampp\htdocs\servicio\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#18 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(71): CController->render('admin', Array)
+#19 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionAdmin()
+#20 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#23 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#27 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('')
+#29 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('Visita')
+#30 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/servicio/Servicio-master/Visita.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/Relacion.html
+---

@@ -67,7 +67,7 @@ class Visita extends CActiveRecord
 			'fkRelVte0' => array(self::BELONGS_TO, 'Relacion', 'fkRelVte'),
 			'fkRelAdol0' => array(self::BELONGS_TO, 'Relacion', 'fkRelAdol'),
 			'fkUsuario0' => array(self::BELONGS_TO, 'Usuario', 'fkUsuario'),
-			#'fkRol0' => array(self::BELONGS_TO, 'Rol', 'fkRol'),
+			#'fkRol0' => array(self::BELONGS_TO, 'Relacion', 'fkRol'),
 		);
 	}
 
@@ -83,7 +83,7 @@ class Visita extends CActiveRecord
 			'fkUsuario' => 'Usuario',
 			'fkRelVte' => 'Visitante',
 			'fkRelAdol' => 'Adolescente',
-			#'fkRol0' => 'Rol',
+			#'fkRol' => 'Rol',
 		);
 	}
 

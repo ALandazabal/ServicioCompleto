@@ -55,11 +55,11 @@ class VisitaController extends Controller
 		if(isset($_POST['Visita']))
 		{
 			$model->attributes=$_POST['Visita'];
-			#$modelR->fkVisitante = '212121';
-			#$modelR->fkAdolescente = '212121';
-			$modelR->fkVisitante = $_POST['Visita']['fkRelVte'];
-			$modelR->fkAdolescente = $_POST['Visita']['fkRelAdol'];
-			$modelR->fkRol = $_POST['Visita']['idRol'];
+			$model->fkRelVte = $_POST['Visitante']['idVisitante'];
+			$model->fkRelAdol = $_POST['Adolescente']['idAdolescente'];
+			$modelR->fkVisitante = $_POST['Visitante']['idVisitante'];
+			$modelR->fkAdolescente = $_POST['Adolescente']['idAdolescente'];
+			$modelR->fkRol = $_POST['Rol']['idRol'];
 			#$modelR->fkRol = '4';			
 			$modelR->save();
 			
