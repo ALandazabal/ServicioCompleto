@@ -38,9 +38,15 @@ class MunicipioController extends Controller
 		);
 	}
 
+	/**public function actionSelectMunicipio(){
+		if(isset($_POST['Visitante']['fkEstado'])){
+			$data = Municipio::model()->findAll(array(
+				'condition'=>'fkEstado'
+			))
+		}
+	}
 	
 	
-	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */

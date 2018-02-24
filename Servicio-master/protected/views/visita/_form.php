@@ -52,6 +52,11 @@
 			<?php echo $form->textField($model,'fkRelAdol'); ?>
 			<?php echo $form->error($model,'fkAdolescente'); ?>
 		</div>
+		<div class="span11">
+			<?php echo $form->labelEx($model,'fkRol'); ?>
+			<?php echo $form->dropDownList($model,'idRol',$model->getMenuRol()); ?>
+			<?php echo $form->error($model,'fkRol'); ?>
+		</div>
 	</div>
 
 	<div class="buttons span12 center">

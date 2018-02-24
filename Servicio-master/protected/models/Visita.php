@@ -52,7 +52,7 @@ class Visita extends CActiveRecord
 			//array('h_entrada, h_salida', 'length', 'max'=>6),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('fecha, h_entrada, h_salida, fkUsuario, fkRelVte, fkRelAdol', 'safe', 'on'=>'search'),
+			array('fecha, h_entrada, h_salida, fkUsuario, fkRelVte, fkRelAdol, fkRol', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +67,7 @@ class Visita extends CActiveRecord
 			'fkRelVte0' => array(self::BELONGS_TO, 'Relacion', 'fkRelVte'),
 			'fkRelAdol0' => array(self::BELONGS_TO, 'Relacion', 'fkRelAdol'),
 			'fkUsuario0' => array(self::BELONGS_TO, 'Usuario', 'fkUsuario'),
+			#'fkRol0' => array(self::BELONGS_TO, 'Rol', 'fkRol'),
 		);
 	}
 
@@ -82,6 +83,7 @@ class Visita extends CActiveRecord
 			'fkUsuario' => 'Usuario',
 			'fkRelVte' => 'Visitante',
 			'fkRelAdol' => 'Adolescente',
+			#'fkRol0' => 'Rol',
 		);
 	}
 
@@ -96,12 +98,17 @@ class Visita extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+
+		#$criteria->with = array('fkRol0');
+
 		$criteria->compare('fecha',$this->fecha,true);
 		$criteria->compare('h_entrada',$this->h_entrada,true);
 		$criteria->compare('h_salida',$this->h_salida,true);
 		$criteria->compare('fkUsuario',$this->fkUsuario);
 		$criteria->compare('fkRelVte',$this->fkRelVte);
 		$criteria->compare('fkRelAdol',$this->fkRelAdol);
+		#$criteria->compare('fkRol', $this->fkRol);
+		#$criteria->compare('fkRol0.descripcionR', $this->fkRol,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -120,5 +127,10 @@ class Visita extends CActiveRecord
 	public function getMenuAdolescente()
 	{
 		return CHtml::listData(Adolescente::model()->findAll(),"idAdolescente","idAdolescente");
+	}
+
+	public function getMenuRol(){
+		#$rol = Rol::model()->findAll()
+		return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");
 	}
 }

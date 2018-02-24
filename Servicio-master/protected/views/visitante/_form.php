@@ -47,27 +47,29 @@
 			<?php echo $form->error($model,'direccion'); ?>
 		</div>
 
-		<!--<div class="span11">
-			<?php #echo $form->dropDownList($model,'idEstado', CHtml::listData(Estado::model()->findAll(),'id','descripcionE')); ?>
-		</div>-->
-
-		<div class="span11">
-			<?php echo $form->labelEx($model,'fkMunicipio'); ?>
-			<?php echo $form->dropDownList($model,'fkMunicipio', $model->getMenuMunicipio(),array("empty"=>"--",'class'=>'span12')); ?>
-			<?php echo $form->error($model,'fkMunicipio'); ?>
-		</div>
-
-		<!--Para actualizar los municipios dependiendo del estado que elijan-->
-		<?php 
-			/*$htmlOptions=array(
-				"ajax" =>array(
-					"url"=>$this->createUrl("munByEst"),
+		<?php
+			$htmlOptions=array(
+				"ajax"=>array(
+					"url"=>$this->createUrl("MunByEst"),
 					"type"=>"POST",
 					"update"=>"#Visitante_fkMunicipio",
 				),
-			 );*/
-		 ?>
+				'prompt' => 'Seleccione un Estado...',
+			);
+		?>
 
+		<div class="span11">
+			<?php echo $form->labelEx($model,'idEstado'); ?>
+			<?php echo $form->DropDownList(Estado::model(),'idEstado', $model->getMenuEstado(), $htmlOptions); ?>
+			<?php echo $form->error($model,'idEstado'); ?>
+		</div>
+
+		<div class="span11">
+			<?php echo $form->labelEx($model,'idMunicipio'); ?>
+			<?php echo $form->DropDownList($model,'fkMunicipio', $model->getMenuMunicipio(),array(
+        'prompt' => 'Seleccione un Municipio...')); ?>
+			<?php echo $form->error($model,'idMunicipio'); ?>
+		</div>
 		
 	</div>
 

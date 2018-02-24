@@ -188,16 +188,21 @@ class Visitante extends CActiveRecord
 
 	public function getMenuEstado()
 	{
-		return CHtml::listData(Estado::model()->findAll(),"idEstado","descripcionE");
+		#$estado = Estado::model()->findAll("status=?",array(1));
+		$estado = Estado::model()->findAll();
+		return CHtml::listData($estado,"idEstado","descripcionE");
 	}
-	/*public function getMenuMunicipio($defaultEstado=19)
+	public function getMenuMunicipio($defaultEstado=1)
 	{
-		return CHtml::listData(Municipio::model()->findAll("Fk_estado=?",array($defaultEstado)),"Id_municipio","Descripcion");
-	}*/
-	public function getMenuMunicipio()
+		$municipio=Municipio::model()->findAll("fkEstado=?", array($defaultEstado));
+		#$municipio=Municipio::model()->findAll();
+		return CHtml::listData($municipio,"idMunicipio","descripcionM");
+	}
+	/*public function getMenuMunicipio()
 	{
+		
 		return CHtml::listData(Municipio::model()->findAll(),"idMunicipio","descripcionM");
-	}
+	}*/
 	public function getMenuRol()
 	{
 		return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");

@@ -33,11 +33,11 @@ class VisitanteController extends Controller
 				'users'=>array('10177862',),
 			),*/
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update','view','MunByEst'),
+				'actions'=>array('admin','create','update','view','MunByEst','selectMunicipio'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create','update','view','MunByEst','SelectMunicipio'),
+				'actions'=>array('admin','delete','create','update','view','MunByEst','selectMunicipio'),
 				'users'=>array('20626929'),
 			),
 			array('deny',  // deny all users
@@ -68,14 +68,14 @@ class VisitanteController extends Controller
 		}
 	}
 
-	/*public function actionMunByEst()
+	public function actionMunByEst()
 	{
-		$list=Municipio::model()->findAll("fkEstado=?",array($_POST["Visitante"]["fkEstado"]));
+		$list=Municipio::model()->findAll("fkEstado=?",array($_POST["Estado"]["idEstado"]));
 		foreach ($list as $data) {
 			echo "<option value=\"{$data->idMunicipio}\">{$data->descripcionM}</option>";
 		}
 	}
-
+/*
 	*
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -150,6 +150,7 @@ class VisitanteController extends Controller
 		}
 
 		$model=new Visitante('search');
+		$modelE = new Estado('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Visitante']))
 			$model->attributes=$_GET['Visitante'];
@@ -162,7 +163,7 @@ class VisitanteController extends Controller
 		}
 
 		$this->render('admin',array(
-			'model'=>$model,
+			'model'=>$model, 'modelE'=>$modelE,
 		));
 	}
 
