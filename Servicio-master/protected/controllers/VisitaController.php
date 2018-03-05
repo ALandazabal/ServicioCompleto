@@ -55,6 +55,7 @@ class VisitaController extends Controller
 		if(isset($_POST['Visita']))
 		{
 			$model->attributes=$_POST['Visita'];
+			//$model->fecha = $_POST['Visita']['fecha'];
 			$model->fkRelVte = $_POST['Visitante']['idVisitante'];
 			$model->fkRelAdol = $_POST['Adolescente']['idAdolescente'];
 			$modelR->fkVisitante = $_POST['Visitante']['idVisitante'];

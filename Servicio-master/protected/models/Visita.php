@@ -47,7 +47,7 @@ class Visita extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha, h_entrada, fkUsuario, fkRelVte, fkRelAdol', 'required'),
+			array('fecha, h_entrada, fkUsuario', 'required'),
 			array('fkUsuario, fkRelVte, fkRelAdol', 'numerical', 'integerOnly'=>true),
 			//array('h_entrada, h_salida', 'length', 'max'=>6),
 			// The following rule is used by search().
@@ -81,9 +81,9 @@ class Visita extends CActiveRecord
 			'h_entrada' => 'Hora Entrada',
 			'h_salida' => 'Hora Salida',
 			'fkUsuario' => 'Usuario',
-			'fkRelVte' => 'Visitante',
-			'fkRelAdol' => 'Adolescente',
-			#'fkRol' => 'Rol',
+			//'fkVisitante' => 'Visitante',
+			'fkAdolescente' => 'Adolescente',
+			'idRol' => 'Rol',
 		);
 	}
 
@@ -99,14 +99,14 @@ class Visita extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 
-		#$criteria->with = array('fkRol0');
+		#$criteria->with = fkUsuario0;
 
 		$criteria->compare('fecha',$this->fecha,true);
 		$criteria->compare('h_entrada',$this->h_entrada,true);
 		$criteria->compare('h_salida',$this->h_salida,true);
 		$criteria->compare('fkUsuario',$this->fkUsuario);
-		$criteria->compare('fkRelVte',$this->fkRelVte);
-		$criteria->compare('fkRelAdol',$this->fkRelAdol);
+		#$criteria->compare('fkRelVte',$this->fkRelVte);
+		#$criteria->compare('fkRelAdol',$this->fkRelAdol);
 		#$criteria->compare('fkRol', $this->fkRol);
 		#$criteria->compare('fkRol0.descripcionR', $this->fkRol,true);
 

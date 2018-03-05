@@ -30,16 +30,8 @@ $('.btn-info').click(function(){
 	'filter'=>$model,
 	/*'columns'=>array(
 		'fecha',
-		'Fk_usuario',
-		'Fk_visitante',
-		'Fk_adolescente',
-		'Telefono',
-		'Fk_estado',
-		
-		'Fk_municipio',
-		'Fk_parentesco',
-		'Fk_nac',
-		
+		'h_entrada',
+		'h_salida',		
 		array(
 			'class'=>'CButtonColumn',
 		),

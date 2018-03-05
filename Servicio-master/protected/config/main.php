@@ -11,7 +11,7 @@ return array(
 	'defaultController'=>'site/login',
 	'theme'=>"tema1",
 	'language'=>'es',
-	'sourceLanguage'=>'en',
+	'sourceLanguage'=>'es',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

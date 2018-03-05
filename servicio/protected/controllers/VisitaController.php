@@ -49,7 +49,7 @@ class VisitaController extends Controller
 		if(isset($_GET['Visita']))
 			$model->attributes=$_GET['Visita'];
 
-		$this->render('admin',array(
+		/**/$this->render('admin',array(
 			'model'=>$model,
 		));
 

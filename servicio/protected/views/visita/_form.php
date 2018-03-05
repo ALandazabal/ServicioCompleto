@@ -30,22 +30,22 @@
 	</div>	
 
 	<div>
-		<?php echo $form->labelEx($model,'fkUsuario'); ?>
+		<?php #echo $form->labelEx($model,'fkUsuario'); ?>
 		<!--<?php #echo $form->dropDownList($model,'fkUsuario',$model->getMenuUsuario(),array("empty"=>"--")); ?>-->
-		<?php echo $form->textField($model,'fkUsuario',array('value'=>Yii::app()->user->name)); ?>
-		<?php echo $form->error($model,'fkUsuario'); ?>
+		<?php #echo $form->textField($model,'fkUsuario',array('value'=>Yii::app()->user->name)); ?>
+		<?php #echo $form->error($model,'fkUsuario'); ?>
 	</div>
 
 	<div>
-		<?php echo $form->labelEx($model,'fkVisitante'); ?>
-		<?php echo $form->dropDownList($model,'fkRelVte',$model->getMenuVisitante(),array("empty"=>"--")); ?>
-		<?php echo $form->error($model,'fkVisitante'); ?>
+		<?php #echo $form->labelEx($model,'fkVisitante'); ?>
+		<?php #echo $form->dropDownList($model,'fkRelVte',$model->getMenuVisitante(),array("empty"=>"--")); ?>
+		<?php #echo $form->error($model,'fkVisitante'); ?>
 	</div>
 
 	<div>
-		<?php echo $form->labelEx($model,'fkAdolescente'); ?>
-		<?php echo $form->dropDownList($model,'fkRelAdol',$model->getMenuAdolescente(),array("empty"=>"--")); ?>
-		<?php echo $form->error($model,'fkAdolescente'); ?>
+		<?php #echo $form->labelEx($model,'fkAdolescente'); ?>
+		<?php #echo $form->dropDownList($model,'fkRelAdol',$model->getMenuAdolescente(),array("empty"=>"--")); ?>
+		<?php #echo $form->error($model,'fkAdolescente'); ?>
 	</div>
 
 	<div class="buttons">
