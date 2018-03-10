@@ -44,7 +44,7 @@ $('.btn-info').click(function(){
 			'class' => 'zii.widgets.grid.CButtonColumn',
 			/*'htmlOptions' => array('style' => 'white-space: nowrap'),*/
 			'template'=>'{update}',
-			'updateButtonUrl' => 'Yii::app()->controller->createUrl("Visita/update",array("fecha"=>$data["fecha"],"fkRelVte"=>$data["fkRelVte"],"fkRelAdol"=>$data["fkRelAdol"]))',
+			'updateButtonUrl' => 'Yii::app()->controller->createUrl("update",array("fecha"=>$data["fecha"],"fkRelVte"=>$data["fkRelVte"],"fkRelAdol"=>$data["fkRelAdol"]))',
 		),/**/
 	),
 )); ?>

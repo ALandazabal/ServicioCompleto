@@ -132,9 +132,34 @@ class VisitaController extends Controller
 		$this->render('create', array('model'=>$model,
 		));
 	}
-	public function actionUpdate($fecha, $visitante, $adolescente)
+	public function actionUpdate($fecha, $fkRelVte, $fkRelAdol)
 	{
-		$model=$this->loadModel($id);
+		/*echo " ".$fecha." ".$fkRelVte." ".$fkRelAdol;*/
+
+		$model=$this->loadModelU($fecha, $fkRelVte, $fkRelAdol);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		date_default_timezone_set('America/Caracas');
+		$h_salida = date("h:i");
+		
+		$model->h_salida = $h_salida;
+		if($model->save()){
+			echo "<script>console.log( 'Debug Objects: ".$model->h_salida."' );</script>";
+			$this->redirect(array('admin'));
+		}
+		
+		$this->render('update',array(
+			'model'=>$model,
+		));/**/
+	}
+
+	/*
+	public function actionUpdate($fecha, $fkRelVte, $fkRelAdol)
+	{
+		/*echo " ".$fecha." ".$fkRelVte." ".$fkRelAdol;*/
+
+	/*	$model=$this->loadModelU($fecha, $fkRelVte, $fkRelAdol);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -142,13 +167,33 @@ class VisitaController extends Controller
 		if(isset($_POST['Visita']))
 		{
 			$model->attributes=$_POST['Visita'];
-			if($model->save())
-				$this->redirect(array('admin', 'id'=>$model->idVisitante));
+			$model->h_salida = '10:14:19.00000';
+			if($model->save()){
+
+				echo "<script>console.log( 'Debug Objects: ".$model->h_entrada."' );</script>";
+				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-		));
+		));/**/
+	/*}*/
+
+	public function loadModelU($fecha, $fkRelVte, $fkRelAdol)
+	{
+		/*$criteria=new CDbCriteria;     
+$criteria->condition='userid=:userId AND status=:Status';
+$criteria->params=array(':userId'=>10,':Status'=>'A');
+$model=User::model()->find($criteria);*/
+
+		$criteria = new CDbCriteria;
+		$criteria->condition='fecha=:Fecha AND fkRelVte=:FkRelVte AND fkRelAdol=:FkRelAdol';
+		$criteria->params=array(':Fecha' =>$fecha ,':FkRelVte' =>$fkRelVte ,':FkRelAdol' =>$fkRelAdol);
+		$model=Visita::model()->find($criteria);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');/**/
+		return $model;
 	}
 
 	public function loadModel($id)
