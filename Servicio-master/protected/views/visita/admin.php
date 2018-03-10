@@ -25,7 +25,7 @@ $('.btn-info').click(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'visita-grid',
-	'summaryText'=>'',
+	/*'summaryText'=>'',*/
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	/*'columns'=>array(

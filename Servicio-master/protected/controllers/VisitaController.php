@@ -47,6 +47,8 @@ class VisitaController extends Controller
 		$model=new Visita('search');
 		$model->unsetAttributes();  // clear any default values
 		$modelR = new Relacion;
+		$modelVte = CHtml::listData(Visitante::model()->findAll(),"idVisitante","idVisitante");
+		$band = 0;
 
 
 		if(isset($_GET['Visita']))
@@ -62,10 +64,28 @@ class VisitaController extends Controller
 			$modelR->fkAdolescente = $_POST['Adolescente']['idAdolescente'];
 			$modelR->fkRol = $_POST['Rol']['idRol'];
 			#$modelR->fkRol = '4';			
-			$modelR->save();
 			
-			if($model->save())
-				$this->redirect(array('admin'));
+			foreach($modelVte as $visitante){
+				if($visitante == $_POST['Visitante']['idVisitante']){
+					echo "Valor ".$_POST['Visitante']['idVisitante'];
+					$modelR->save();
+
+					$model->save();
+
+					$band = 1;
+
+					$this->redirect(array('admin'));
+
+				}//else{
+					//$this->redirect('create',array('model'=>$model,));					
+				//}
+			}
+
+			if($band == 0)
+				$this->redirect(array('Visitante/create'));
+			
+			//if($model->save())
+				
 		}
 
 		$this->render('admin',array(
