@@ -24,16 +24,27 @@ $('.btn-info').click(function(){
 </div>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'visita-grid',
-	/*'summaryText'=>'',*/
+	/*'id'=>'visita-grid',*/
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	/*'columns'=>array(
+	/*'summaryText'=>'',
+	'filter'=>$model,*/
+	'columns'=>array(
 		'fecha',
 		'h_entrada',
-		'h_salida',		
+		'h_salida',	
+		'fkUsuario',
+		'fkRelVte',
+		'fkRelAdol',
 		array(
-			'class'=>'CButtonColumn',
-		),
-	),*/
+			'name'=>'Check', 
+			'type'=>'raw', 
+			'value'=>'CHtml::checkBox("Check")'
+		),	
+		array(
+			'class' => 'zii.widgets.grid.CButtonColumn',
+			/*'htmlOptions' => array('style' => 'white-space: nowrap'),*/
+			'template'=>'{update}',
+			'updateButtonUrl' => 'Yii::app()->controller->createUrl("Visita/update",array("fecha"=>$data["fecha"],"fkRelVte"=>$data["fkRelVte"],"fkRelAdol"=>$data["fkRelAdol"]))',
+		),/**/
+	),
 )); ?>

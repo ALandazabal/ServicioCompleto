@@ -48,7 +48,11 @@ class VisitaController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		$modelR = new Relacion;
 		$modelVte = CHtml::listData(Visitante::model()->findAll(),"idVisitante","idVisitante");
-		$band = 0;
+		$modelAte = CHtml::listData(Adolescente::model()->findAll(),"idAdolescente","idAdolescente");
+		$modelRel = Relacion::model()->findAll();
+		$bandv = 0;
+		$banda = 0;
+		$bandr = 0;
 
 
 		if(isset($_GET['Visita']))
@@ -67,24 +71,37 @@ class VisitaController extends Controller
 			
 			foreach($modelVte as $visitante){
 				if($visitante == $_POST['Visitante']['idVisitante']){
-					echo "Valor ".$_POST['Visitante']['idVisitante'];
-					$modelR->save();
-
-					$model->save();
-
-					$band = 1;
-
-					$this->redirect(array('admin'));
+					$bandv = 1;
+					//echo "Valor ".$_POST['Visitante']['idVisitante'];
+					foreach($modelAte as $adolescente){
+						if($adolescente == $_POST['Adolescente']['idAdolescente']){
+							$banda = 1;
+							foreach($modelRel as $relacion){
+								if($visitante == $relacion->fkVisitante && $adolescente == $relacion->fkAdolescente){
+									//echo "->".$relacion->fkRol;
+									$bandr = 1;	
+									$model->save();
+									$this->redirect(array('admin'));								
+								}
+							}
+						}
+					}
 
 				}//else{
-					//$this->redirect('create',array('model'=>$model,));					
+					//$this->redirect('create');					
 				//}
 			}
 
-			if($band == 0)
+			if($bandv == 0)
 				$this->redirect(array('Visitante/create'));
-			
-			//if($model->save())
+			if($banda == 0)
+				$this->redirect(array('Adolescente/create'));
+			if($bandr == 0){
+				if($modelR->save()){
+					$model->save();
+					$this->redirect(array('admin'));
+				}
+			}
 				
 		}
 
@@ -113,6 +130,24 @@ class VisitaController extends Controller
 		}
 
 		$this->render('create', array('model'=>$model,
+		));
+	}
+	public function actionUpdate($fecha, $visitante, $adolescente)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Visita']))
+		{
+			$model->attributes=$_POST['Visita'];
+			if($model->save())
+				$this->redirect(array('admin', 'id'=>$model->idVisitante));
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
 		));
 	}
 

@@ -68,7 +68,7 @@ class AdolescenteController extends Controller
 		{
 			$model->attributes=$_POST['Adolescente'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idAdolescente));
+				$this->redirect(array('admin','id'=>$model->idAdolescente));
 		}
 
 		$this->render('create',array(

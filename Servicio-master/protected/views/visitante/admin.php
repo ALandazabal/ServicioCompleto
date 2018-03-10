@@ -47,5 +47,10 @@ $('.btn-info').click(function(){
 			'name'=>'Municip',
 			'value'=>'$data->fkMunicipio0->descripcionM',
 		),
+		/*array(
+			'class' => 'CButtonColumn',
+			'htmlOptions' => array('style' => 'white-space: nowrap'),
+			'template'=>'{delete}{update}',
+		),*/
 	),
 )); ?>
