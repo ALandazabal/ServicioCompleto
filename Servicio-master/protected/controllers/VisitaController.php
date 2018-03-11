@@ -38,11 +38,11 @@ class VisitaController extends Controller
 	}
 	public function actionAdmin()
 	{
-		/*if (isset($_GET["reporte"])) {
+		if (isset($_GET["reporte"])) {
 			$model=Visita::model()->findAll("fecha=?",array(date('Y-m-d')));
 			$content=$this->renderPartial("reporte",array("model"=>$model),true);
 			Yii::app()->request->sendFile("reporteVisita.doc",$content);
-		}*/	
+		}/**/	
 
 		$model=new Visita('search');
 		$model->unsetAttributes();  // clear any default values
@@ -141,17 +141,17 @@ class VisitaController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		date_default_timezone_set('America/Caracas');
-		$h_salida = date("h:i");
+		$h_salida = date("g:i:s");
 		
 		$model->h_salida = $h_salida;
 		if($model->save()){
-			echo "<script>console.log( 'Debug Objects: ".$model->h_salida."' );</script>";
+			//echo "<script>console.log( 'Debug Objects: ".$model->h_salida."' );</script>";
 			$this->redirect(array('admin'));
 		}
 		
-		$this->render('update',array(
+		/*$this->render('update',array(
 			'model'=>$model,
-		));/**/
+		));*/
 	}
 
 	/*

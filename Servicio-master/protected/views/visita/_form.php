@@ -21,22 +21,22 @@
 
 			<?php date_default_timezone_set('America/Caracas');
  				$fecha = date("Y-m-d");
-				echo $form->textField($model,'fecha',array('value'=>$fecha)); ?>
+				echo $form->textField($model,'fecha',array('value'=>$fecha,'readonly'=>'readonly')); ?>
 			<?php echo $form->error($model,'fecha'); ?>
 		</div>	
 
 		<div class="span11">
 			<?php echo $form->labelEx($model,'h_entrada'); ?>
 			<?php date_default_timezone_set('America/Caracas');
-					 $h_entrada = date("h:i");
-				echo $form->textField($model,'h_entrada',array('value'=>$h_entrada)); ?>
+					 $h_entrada = date("g:i:s");
+				echo $form->textField($model,'h_entrada',array('value'=>$h_entrada,'readonly'=>'readonly')); ?>
 			<?php echo $form->error($model,'h_entrada'); ?>
 		</div>	
 
 		<div class="span11">
 			<?php echo $form->labelEx($model,'fkUsuario'); ?>
 			<!--<?php #echo $form->dropDownList($model,'fkUsuario',$model->getMenuUsuario(),array("empty"=>"--")); ?>-->
-			<?php echo $form->textField($model,'fkUsuario',array('value'=>Yii::app()->user->name)); ?>
+			<?php echo $form->textField($model,'fkUsuario',array('value'=>Yii::app()->user->name,'readonly'=>'readonly')); ?>
 			<?php echo $form->error($model,'fkUsuario'); ?>
 		</div>
 	</div>

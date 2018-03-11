@@ -24,7 +24,7 @@ class Visita extends CActiveRecord
 	 * @return Visita the static model class
 	 */
 
-	
+	public $Rolv;
 
 	public static function model($className=__CLASS__)
 	{
@@ -52,7 +52,7 @@ class Visita extends CActiveRecord
 			//array('h_entrada, h_salida', 'length', 'max'=>6),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('fecha, h_entrada, h_salida, fkUsuario, fkRelVte, fkRelAdol, fkRol', 'safe', 'on'=>'search'),
+			array('fecha, h_entrada, h_salida, fkUsuario, fkRelVte, fkRelAdol, fkRol, Rolv', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,7 +67,7 @@ class Visita extends CActiveRecord
 			'fkRelVte0' => array(self::BELONGS_TO, 'Relacion', 'fkRelVte'),
 			'fkRelAdol0' => array(self::BELONGS_TO, 'Relacion', 'fkRelAdol'),
 			'fkUsuario0' => array(self::BELONGS_TO, 'Usuario', 'fkUsuario'),
-			#'fkRol0' => array(self::BELONGS_TO, 'Relacion', 'fkRol'),
+			'fkRol0' => array(self::BELONGS_TO, 'Relacion', 'fkRol'),
 		);
 	}
 
@@ -81,9 +81,10 @@ class Visita extends CActiveRecord
 			'h_entrada' => 'Hora Entrada',
 			'h_salida' => 'Hora Salida',
 			'fkUsuario' => 'Usuario',
-			//'fkVisitante' => 'Visitante',
-			'fkAdolescente' => 'Adolescente',
+			'fkRelVte' => 'Visitante',
+			'fkRelAdol' => 'Adolescente',
 			'idRol' => 'Rol',
+			'Rolv' => 'Rol',
 		);
 	}
 
@@ -97,6 +98,17 @@ class Visita extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		/*$sort = new CSort;
+
+		$sort->defaultOrder='fecha ASC,
+			fkRelVte0.fkRol ASC';
+		$sort->attributes=array(
+			'fecha'=>array(
+				'asc'=>'fecha ASC,
+					fkRelVte0.fkRol ASC',
+				'desc'=>
+			),
+		);*/
 
 
 		#$criteria->with = fkUsuario0;
@@ -105,6 +117,7 @@ class Visita extends CActiveRecord
 		$criteria->compare('h_entrada',$this->h_entrada,true);
 		$criteria->compare('h_salida',$this->h_salida,true);
 		$criteria->compare('fkUsuario',$this->fkUsuario);
+		$criteria->compare('fkRol0.fkRol',$this->Rolv,true);
 		#$criteria->compare('fkRelVte',$this->fkRelVte);
 		#$criteria->compare('fkRelAdol',$this->fkRelAdol);
 		#$criteria->compare('fkRol', $this->fkRol);
@@ -132,5 +145,15 @@ class Visita extends CActiveRecord
 	public function getMenuRol(){
 		#$rol = Rol::model()->findAll()
 		return CHtml::listData(Rol::model()->findAll(),"idRol","descripcionR");
+	}
+
+	public function getMenuRelacion($fkRelVte, $fkRelAdol){
+		#$rol = Rol::model()->findAll()
+		$criteria = new CDbCriteria;
+		$criteria->condition='fkVisitante=:fkVte AND fkAdolescente=:fkAdol';
+		$criteria->params=array(':fkVte'=>$fkRelVte, ':fkAdol'=>$fkRelAdol);
+		#echo "<script> alert('".$fkRelVte."')</script>";
+		$model = Relacion::model()->find($criteria);
+		return $model->fkRol;
 	}
 }
