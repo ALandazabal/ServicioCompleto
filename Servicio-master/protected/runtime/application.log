@@ -647,3 +647,26 @@ REQUEST_URI=/servicio/Servicio-master/Visita.html
 in C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\admin.php (28)
 in C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php (109)
 in C:\xampp\htdocs\servicio\Servicio-master\index.php (13)
+2018/03/11 10:31:42 [error] [exception.Error] Error: Call to a member function getMenuRelacion() on array in C:\xampp\htdocs\servicio\Servicio-master\protected\views\visita\reporteView.php:20
+Stack trace:
+#0 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(126): require()
+#1 C:\xampp\htdocs\servicio\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\servicio\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\servicio\Servicio-master\protected\controllers\VisitaController.php(219): CController->renderPartial('reporteView', Array, true)
+#4 C:\xampp\htdocs\servicio\framework\web\actions\CInlineAction.php(49): VisitaController->actionReporte()
+#5 C:\xampp\htdocs\servicio\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\servicio\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\servicio\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\servicio\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\servicio\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\servicio\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\servicio\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(282): CController->run('reporte')
+#14 C:\xampp\htdocs\servicio\framework\web\CWebApplication.php(141): CWebApplication->runController('visita/reporte')
+#15 C:\xampp\htdocs\servicio\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\servicio\Servicio-master\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/servicio/Servicio-master/visita/reporte.html
+HTTP_REFERER=http://localhost/servicio/Servicio-master/visita/admin.html?reporte=1
+---

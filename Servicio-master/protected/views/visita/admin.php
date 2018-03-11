@@ -4,7 +4,7 @@
 
 $this->menu=array(
 	array('label'=>'Create Visita', 'url'=>array('create')),
-	array('label'=>'Reporte', 'url'=>array('admin',"reporte"=>1)),
+	array('label'=>'Reporte', 'url'=>array('reporte')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

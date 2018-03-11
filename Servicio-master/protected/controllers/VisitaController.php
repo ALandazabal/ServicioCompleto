@@ -24,11 +24,11 @@ class VisitaController extends Controller
 				'users'=>array('@'),
 			),*/
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update','view','MunByEst'),
+				'actions'=>array('admin','create','update','view','MunByEst','reporte'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create','update','view','MunByEst'),
+				'actions'=>array('admin','delete','create','update','view','MunByEst','reporte'),
 				'users'=>array('20626929'),
 			),
 			array('deny',  // deny all users
@@ -38,11 +38,11 @@ class VisitaController extends Controller
 	}
 	public function actionAdmin()
 	{
-		if (isset($_GET["reporte"])) {
+		/*if (isset($_GET["reporte"])) {
 			$model=Visita::model()->findAll("fecha=?",array(date('Y-m-d')));
 			$content=$this->renderPartial("reporte",array("model"=>$model),true);
 			Yii::app()->request->sendFile("reporteVisita.doc",$content);
-		}/**/	
+		}*/	
 
 		$model=new Visita('search');
 		$model->unsetAttributes();  // clear any default values
@@ -211,6 +211,48 @@ $model=User::model()->find($criteria);*/
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function actionReporte(){
+
+		$model = Visita::model()->findAll();
+		$content=$this->renderPartial("reporteView",array("model"=>$model),true);
+		Yii::app()->request->sendFile("ReporteVisitasExcel.xls",$content);
+
+		/*Yii::import('ext.phpexcel.XPHPExcel');
+		$objPHPExcel = XPHPExcel::createPHPExcel();
+
+		//Configuracion de las propiedades del documento
+		$objPHPExcel->getProperties()->setCreator("Wilpia Florez de Centeno")->setTitle("Reporte de Visitas");
+
+		//Añadir data
+		$objPHPExcel->setActiveSheetIndex(0)
+              ->setCellValue('A1', 'Hello')
+              ->setCellValue('B2', 'world!')
+              ->setCellValue('C1', 'Hello')
+              ->setCellValue('D2', 'world!');
+	  // Miscellaneous glyphs, UTF-8
+	  $objPHPExcel->setActiveSheetIndex(0)
+	              ->setCellValue('A4', 'Miscellaneous glyphs')
+	              ->setCellValue('A5', 'éàèùâêîôûëïüÿäöüç');
+	  // Rename worksheet
+	  $objPHPExcel->getActiveSheet()->setTitle('Simple');
+	  // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+	  $objPHPExcel->setActiveSheetIndex(0);
+	  // Redirect output to a client’s web browser (Excel5)
+	  header('Content-Type: application/vnd.ms-excel');
+	  header('Content-Disposition: attachment;filename="01simple.xls"');
+	  header('Cache-Control: max-age=0');
+	  // If you're serving to IE 9, then the following may be needed
+	  header('Cache-Control: max-age=1');
+	  // If you're serving to IE over SSL, then the following may be needed
+	  header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+	  header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+	  header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+	  header ('Pragma: public'); // HTTP/1.0
+	  $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+	  $objWriter->save('php://output');
+	  exit;*/
 	}
 
 	// Uncomment the following methods and override them if needed
